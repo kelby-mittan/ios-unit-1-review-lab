@@ -38,7 +38,16 @@ establishment of an absolute Tyranny over these States. To prove this, let Facts
 candid world.
 """
 ```
+## Answer
+```swift
+var strWOutPunct = declarationOfIndependence.components(separatedBy: CharacterSet.punctuationCharacters).joined()
 
+var strWOutNewLines = strWOutPunct.replacingOccurrences(of: "\n", with: " ")
+
+let declarationAsArr = strWOutNewLines.components(separatedBy: " ")
+
+print(declarationAsArr)
+```
 ## Question 2
 
 Make an array that contains all elements that appear more than twice in someRepeatsAgain.
@@ -47,7 +56,32 @@ Make an array that contains all elements that appear more than twice in someRepe
 ```swift
 var someRepeatsAgain = [25,11,30,31,50,28,4,37,13,20,24,38,28,14,44,33,7,43,39,35,36,42,1,40,7,14,23,46,21,39,11,42,12,38,41,48,20,23,29,24,50,41,38,23,11,30,50,13,13,16,10,8,3,43,10,20,28,39,24,36,21,13,40,25,37,39,31,4,46,20,38,2,7,11,11,41,45,9,49,31,38,23,41,16,49,29,14,6,6,11,5,39,13,17,43,1,1,15,25]
 ```
-
+## Answer
+```swift
+func arrayToDict(input: [Int]) -> [Int:Int] {
+    var intDict = [Int: Int]()
+    for num in input {
+        if let count = intDict[num] {
+            intDict[num] = count + 1
+        } else {
+            intDict[num] = 1
+        }
+    }
+    return intDict
+}
+let freqOfInt = arrayToDict(input: someRepeatsAgain)
+print(freqOfInt)
+func moreThanTwice(input: [Int:Int]) -> [Int] {
+    var output = [Int]()
+    for key in input {
+        if key.1 >= 2 {
+            output.append(key.0)
+        }
+    }
+    return output
+}
+print(moreThanTwice(input: freqOfInt))
+```
 ## Question 3
 
 Identify if there are 3 integers in the following array that sum to 10. If so, print them. If there are multiple triplets, print all possible triplets.
