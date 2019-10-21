@@ -89,7 +89,32 @@ Identify if there are 3 integers in the following array that sum to 10. If so, p
 ```swift
 var tripleSumArr = [-20,-14, -8,-5,-3,-2,1,2,3,4,9,15,20,30]
 ```
+## Answer
+```swift
+var tripleSumArr = [-20,-14, -8,-5,-3,-2,1,2,3,4,9,15,20,30]
 
+func sumToTen(input: [Int]) -> [[Int]] {
+    var arrayOfArrayOfInt = [[Int]]()
+    var arrOfInt = [Int]()
+
+    for x in input {
+        for y in input {
+            for z in input {
+                if x + y + z == 10 {
+                    arrOfInt.append(x)
+                    arrOfInt.append(y)
+                    arrOfInt.append(z)
+                }
+            }
+            
+        }
+    }
+
+    arrayOfArrayOfInt.append(arrOfInt)
+    return arrayOfArrayOfInt
+}
+print(sumToTen(input: tripleSumArr))
+```
 
 ## Question 3
 
