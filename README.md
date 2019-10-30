@@ -167,7 +167,22 @@ Input: [[2,4,1],[3,0],[9,3]]
 
 Output: [9,3]
 ```
-
+## Answer
+```swift
+func sumFunc(input: [[Int]]) -> [Int] {
+    var largestSum = [Int]()
+//    var arrOfInts = [Int]()
+    for arr in input {
+        largestSum.append(arr.reduce(0, +))
+//        for num in largestSum {
+//            arrOfInts.append(<#T##newElement: Int##Int#>)
+//        }
+    }
+    
+    return largestSum
+}
+print(sumFunc(input: [[2,4,1],[3,0],[9,3]]))
+```
 ## Question 5
 
 ```swift
@@ -191,12 +206,13 @@ c. Write a function that takes in an array of `Receipts` and returns an array of
 ## Question 6
 
 a. The code below doesn't compile.  Why?  Fix it so that it does compile.
-
+## Answer
+## homePlanet was a constant, needed to be changed to a variable
 ```swift
 class Giant {
     var name: String
     var weight: Double
-    let homePlanet: String
+    var homePlanet: String
 
     init(name: String, weight: Double, homePlanet: String) {
         self.name = name
@@ -219,6 +235,8 @@ let edgar = Giant(name: "Edgar", weight: 520.0, homePlanet: "Earth")
 let jason = edgar
 jason.name = "Jason"
 ```
+## Answer
+## when jason was declared in let jason = edgar and then jason.name was changed to "jason" edgar.name was changed as well because it is a reference type
 
 ## Question 7
 
@@ -301,4 +319,25 @@ Make a function that takes in an array of strings and returns an array of string
 Input: ["Hello", "Alaska", "Dad", "Peace", "Power"]
 
 Output: ["Alaska", "Dad", "Power"]
+```
+## Answer
+```swift
+let rowOne = "qwertyuiop"
+let rowTwo = "asdfghjkl"
+let rowThree = "zxcvbnm"
+
+func oneRowWord(input: [String]) -> [String] {
+    var output = [String]()
+    for word in input {
+        if Set(word.lowercased()).isSubset(of: Set(rowOne)) {
+            output.append(word)
+        } else if Set(word.lowercased()).isSubset(of: Set(rowTwo)) {
+            output.append(word)
+        } else if Set(word.lowercased()).isSubset(of: Set(rowThree)) {
+            output.append(word)
+        }
+    }
+    
+    return output
+}
 ```
