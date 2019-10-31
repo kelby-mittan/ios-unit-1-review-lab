@@ -174,9 +174,6 @@ func sumFunc(input: [[Int]]) -> [Int] {
 //    var arrOfInts = [Int]()
     for arr in input {
         largestSum.append(arr.reduce(0, +))
-//        for num in largestSum {
-//            arrOfInts.append(<#T##newElement: Int##Int#>)
-//        }
     }
     
     return largestSum
