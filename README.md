@@ -254,6 +254,30 @@ struct BankAccount {
     }
 }
 ```
+## Answer
+```swift
+struct BankAccount {
+    var owner: String
+    var balance: Double
+    var deposits: [Double]
+    var withdraws: [Double]
+    let startingBalance: Double
+
+    mutating func deposit(_ amount: Double) {
+        balance += amount
+    }
+
+    mutating func withdraw(_ amount: Double) {
+        balance -= amount
+    }
+    
+    mutating func totalGrowth() -> Double {
+        let growth: Double
+        growth = balance - startingBalance
+        return growth
+    }
+}
+```
 
 a. Explain why the code above doesn't compile, then fix it.
 
@@ -283,6 +307,24 @@ House Stark - Winter is coming
 House Targaryen - Fire and Blood
 
 House Lannister - A Lannister always pays his debts
+```
+## Answer
+```swift
+func GOTHouse(_ whatHouse: GameOfThronesHouse)  -> String {
+    var houseWords: String
+    switch whatHouse {
+    case .baratheon:
+        houseWords = "Ours is the Fury"
+    case .stark:
+        houseWords = "Winter is coming"
+    case .targaryen:
+        houseWords = "Fire and Blood"
+    case .lannister:
+        houseWords = "A Lannister always pays his debts"
+    }
+    return houseWords
+}
+
 ```
 
 b. Move that function to inside the enum as a method
