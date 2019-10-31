@@ -47,6 +47,26 @@ var strWOutNewLines = strWOutPunct.replacingOccurrences(of: "\n", with: " ")
 let declarationAsArr = strWOutNewLines.components(separatedBy: " ")
 
 print(declarationAsArr)
+
+var freqDic = [String:Int]()
+for word in declarationAsArr {
+    if let value = freqDic[word] {
+        freqDic[word] = value + 1
+    } else {
+        freqDic[word] = 1
+    }
+}
+func mostWord(dic: [String:Int]) -> String {
+    var longWord = String()
+    var highCount = 0
+    for (key, value) in dic {
+        if value > highCount && key.count > 5  {
+            highCount = value
+            longWord = key
+        }
+    }
+    return longWord
+}
 ```
 ## Question 2
 
